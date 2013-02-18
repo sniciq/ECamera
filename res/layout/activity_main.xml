@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
     <LinearLayout 
@@ -23,16 +24,18 @@
             android:layout_weight="1"/>
     </LinearLayout>
     <ImageView 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
         android:visibility="visible"
         android:id="@+id/imageView1"
         android:contentDescription="@string/imageView"
         />
     <VideoView 
-      android:layout_height="wrap_content" 
-      android:layout_width="wrap_content" 
-      android:visibility="invisible"
-      android:id="@+id/videoView1" />
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:visibility="invisible"
+		android:id="@+id/videoView1" />
 
 </LinearLayout>

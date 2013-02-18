@@ -4,8 +4,8 @@
     <string name="app_name">ECamera</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="btnIntend">Take (big) Picture</string>
-    <string name="btnIntendS">Take (small) Picture</string>
+    <string name="btnIntend">Big Pic</string>
+    <string name="btnIntendS">Small Pic</string>
     <string name="btnIntendV">Take Video</string>
     <string name="imageView">ImageView</string>
     <string name="album_name">album</string>
