@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -180,13 +181,13 @@ public class MainActivity extends Activity {
 		mImageBitmap = null;
 		mVideoUri = null;
 
-		Button picBtn = (Button) findViewById(R.id.btnIntend);
+		ImageButton picBtn = (ImageButton) findViewById(R.id.btnIntend);
 		setBtnListenerOrDisable(picBtn, mTakePicOnClickListener, MediaStore.ACTION_IMAGE_CAPTURE);
 
-		Button sPicBtn = (Button) findViewById(R.id.btnIntendS);
+		ImageButton sPicBtn = (ImageButton) findViewById(R.id.btnIntendS);
 		setBtnListenerOrDisable(sPicBtn, mTakeSmallPicOnClickListener, MediaStore.ACTION_IMAGE_CAPTURE);
 
-		Button vBtn = (Button) findViewById(R.id.btnIntendV);
+		ImageButton vBtn = (ImageButton) findViewById(R.id.btnIntendV);
 		setBtnListenerOrDisable(vBtn, mTakeVidOnClickListener, MediaStore.ACTION_VIDEO_CAPTURE);
 		
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
@@ -284,11 +285,10 @@ public class MainActivity extends Activity {
 		return list.size() > 0;
 	}
 
-	private void setBtnListenerOrDisable(Button btn, Button.OnClickListener onClickListener, String intentName) {
+	private void setBtnListenerOrDisable(ImageButton btn, Button.OnClickListener onClickListener, String intentName) {
 		if (isItentAvailable(this, intentName)) {
 			btn.setOnClickListener(onClickListener);
 		} else {
-			btn.setText(getText(R.string.cannot).toString() + " " + btn.getText());
 			btn.setClickable(false);
 		}
 	}
@@ -298,5 +298,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+	
+	
 
 }
