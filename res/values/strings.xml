@@ -10,5 +10,5 @@
     <string name="imageView">ImageView</string>
     <string name="album_name">album</string>
     <string name="cannot">cannot</string>
-
+    <string name="btnAutoCam">btnAutoCam</string>
 </resources>

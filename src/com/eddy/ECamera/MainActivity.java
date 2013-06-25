@@ -14,6 +14,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
+import android.graphics.PixelFormat;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,6 +38,7 @@ public class MainActivity extends Activity {
 	private VideoView mVideoView;
 	private Uri mVideoUri;
 
+	private static final int ACTION_TAKE_PHOTO_A = 0;
 	private static final int ACTION_TAKE_PHOTO_B = 1;
 	private static final int ACTION_TAKE_PHOTO_S = 2;
 	private static final int ACTION_TAKE_VIDEO = 3;
@@ -53,6 +57,7 @@ public class MainActivity extends Activity {
 	private static final String VIDEO_STORAGE_KEY = "viewvideo";
 	private static final String VIDEOVIEW_VISIBILITY_STORAGE_KEY = "videoviewvisibility";
 
+	
 	Button.OnClickListener mTakePicOnClickListener = new Button.OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
@@ -180,6 +185,13 @@ public class MainActivity extends Activity {
 		mVideoView.setMediaController(new MediaController(this));
 		mImageBitmap = null;
 		mVideoUri = null;
+		
+//		ImageButton btnAutoCam = (ImageButton) findViewById(R.id.btnAutoCam);
+//		setBtnListenerOrDisable(btnAutoCam, mAutoTakePicOnClickListener, null);
+//		btnAutoCam.setOnClickListener(l)
+//		setOnClickListener
+//		btnAutoCam.
+				
 
 		ImageButton picBtn = (ImageButton) findViewById(R.id.btnIntend);
 		setBtnListenerOrDisable(picBtn, mTakePicOnClickListener, MediaStore.ACTION_IMAGE_CAPTURE);
@@ -213,6 +225,18 @@ public class MainActivity extends Activity {
 		mVideoUri = null;
 		mImageView.setVisibility(View.VISIBLE);
 		mVideoView.setVisibility(View.INVISIBLE);
+	}
+	
+	public void autoTakePic(View v) {
+		Camera camera = Camera.open();
+		Camera.Parameters parameters = camera.getParameters();
+		parameters.setPreviewSize(320, 240);
+		parameters.setPictureFormat(ImageFormat.JPEG);
+		parameters.set("jpeg-quality", 85);
+		parameters.setPictureSize(320, 240);
+		camera.setParameters(parameters);
+		camera.autoFocus(null);
+		
 	}
 
 	private void handleBigCameraPhoto() {

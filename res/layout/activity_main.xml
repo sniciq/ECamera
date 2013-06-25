@@ -10,6 +10,15 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         >
+        <ImageButton 
+            android:id="@+id/btnAutoCam"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/auto_camera"
+            android:contentDescription="@string/btnAutoCam"
+            android:onClick="autoTakePic"
+            />
         <ImageButton  
             android:id="@+id/btnIntend"
             android:layout_height="wrap_content"
